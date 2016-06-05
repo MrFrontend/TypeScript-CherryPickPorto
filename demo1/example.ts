@@ -36,14 +36,22 @@ class Greeter {
   }
 }
 
-// Function to sort IPerson by name.
-function sortByName(a: IPerson[]): IPerson[] {
-  var result = a.slice(0);
-  result.sort((x, y) => {
-    return x.name.localeCompare(y.name);
-  });
-  return result;
+// Use of generics to reuse the sort functionality for any type and any property of the given type.
+function sortBy<T>(a: T[], key: string | ((item: T) => any)) {
+    var result = a.slice(0);
+    var callback = typeof key === 'string' ? x => x[key]: key;
+    result.sort((x,y) => {
+        var kx = callback(x);
+        var ky = callback(y);
+        return kx > ky ? 1 : kx < ky ? -1 : 0;
+    });
+    return result;
 }
 
-var greeter = new Greeter();
-greeter.greet(me);
+var sortedProducts = sortBy(products, x => x.name);
+console.log('Sorted products by name:');
+console.log(sortedProducts);
+
+var sortedFriends = sortBy(friends, x => x.age);
+console.log('Sorted friends by age:');
+console.log(sortedFriends);
