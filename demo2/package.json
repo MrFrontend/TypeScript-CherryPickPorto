@@ -1,0 +1,14 @@
+{
+  "name": "demo2",
+  "version": "1.0.0",
+  "description": "Just a demo for Cherry Pick Porto 2016",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Antoni Huguet Vives",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.13.1"
+  }
+}
