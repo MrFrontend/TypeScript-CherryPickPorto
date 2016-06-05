@@ -5,4 +5,4 @@ function sortByName(a: any[]): any[] {
   });
   return result;
 }
-sortByName(5);
+sortByName([]);
